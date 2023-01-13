@@ -1,1 +1,7 @@
 # Repo for Vue-3 study
+## Guide
+1. demo-startup
+    *  basic vue template grammar
+    *  basic vue commands (v-*)
+    *  basic vue component: data,method,computed,watch
+2. 
