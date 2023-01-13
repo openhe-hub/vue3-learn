@@ -99,4 +99,14 @@
       },
    }
    ``` 
-1.  
+10. class动态绑定：
+    1. 对象绑定：`:class="{className:propName}`
+    2. 数组绑定(不常用)：`:class="[classProp1,classProp2]"`
+11. css动态样式
+    1. v-bind绑定style：`<div :style="styleObj">style</div>`
+    2. 定义style对象：`styleObj: {
+               color: "red", 
+                fontSize: '20px'
+            }`
+    3. 注意仍为css的key-value，改为驼峰命名法        
+12. 

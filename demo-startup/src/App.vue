@@ -34,11 +34,6 @@ export default {
       console.log(newVal);
       console.log(oldVal);
     },
-    // username(newVal,oldVal){
-    //   if(newVal.length<5){
-    //     console.log("username is too short");
-    //   }
-    // }
     username: {
       immediate: true,
       handler(newVal, oldVal) {
