@@ -60,4 +60,43 @@
    使用：同mustache插值语法
    * 性能提升，只要计算属性的依赖值不变，不会重复计算
    * 计算属性默认只有getter,但是也可以手动添加setter(一般只用于只读属性)
-9.  
+9. watch：侦听器
+   ```js
+   watch:{
+      num(newVal,oldVal){
+         console.log(newVal);
+         console.log(oldVal);
+      }
+   }
+   ```
+   * 初始化渲染也触发侦听器
+   ```js
+   username: {
+      immediate: true,
+      handler(newVal, oldVal) {
+        if (newVal.length < 5) {
+          console.log("username is too short");
+        }
+      }
+   }
+   ``` 
+   * 监听不到对象属性的变化=>使用深度侦听
+   ```js
+   user:{
+      handler(newVal,oldVal){
+        console.log(newVal);
+        console.log(oldVal);
+      },
+      deep:true
+   }
+   ``` 
+   * 使用字符串简化深度监听
+   ```js
+   "user.name":{
+      handler(newVal,oldVal){
+        console.log(newVal);
+        console.log(oldVal);
+      },
+   }
+   ``` 
+1.  
