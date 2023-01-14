@@ -180,4 +180,75 @@
       ```html
       <input type="text" @keyup.enter="onKeyEnter"/>
       ``` 
-15. 
+15. v-model
+    * 本质是v-on监听数据改变+v-bind绑定value属性
+    * v-model包含常用form元素
+      * 文本
+      * 单选框
+      * 单选复选框
+      * 多选复选框
+      * 单选选项
+      * 多选选项
+    * demo
+    ```html
+      <form action="">
+        <input type="text" name="" id="" v-model="msg">
+        <div>{{msg}}</div>
+         <!--        single checkbox-->
+        <hr>
+        <input type="checkbox" v-model="isChecked">
+        <div>{{isChecked}}</div>
+         <!--        multi checkboxes-->
+        <hr>
+        <input type="checkbox" v-model="checked" value="apple">apple
+        <input type="checkbox" v-model="checked" value="orange">orange
+        <input type="checkbox" v-model="checked" value="pear">pear
+        <div>{{checked}}</div>
+         <!--        radio button-->
+        <hr>
+        <input type="radio" v-model="gender" value="male">male
+        <input type="radio" v-model="gender" value="female">female
+        <div>{{gender}}</div>
+         <!--        single select-->
+        <hr>
+        <select name="" id="" v-model="city">
+          <option value="shanghai">shanghai</option>
+          <option value="beijing">beijing</option>
+          <option value="shenzhen">shenzhen</option>
+        </select>
+        <div>{{city}}</div>
+         <!--        multi select-->
+        <hr>
+        <select name="" id="" v-model="cities" multiple>
+          <option value="shanghai">shanghai</option>
+          <option value="beijing">beijing</option>
+          <option value="shenzhen">shenzhen</option>
+        </select>
+        <div>{{cities}}</div>
+      </form>
+    ```
+    ```js
+      data(){
+         return{
+            msg:"hello world",
+            isChecked:true,
+            checked:[],
+            gender:"male",
+            city:"shanghai",
+            cities:["shanghai"]
+         }
+      }
+    ``` 
+    4. 修饰符   
+       1. lazy：懒加载，减少频繁更新数据（失去焦点后再同步数据）
+       2. number：输入框类型自动转为number类型
+       3. trim：消除首尾空格（中间空格转为一格）
+       * demo code
+       ```html
+         <form action="">
+            <input type="text" v-model.lazy.trim="msg">
+            <div>{{msg}}</div>
+            <input v-model.number="age">
+            <div>{{typeof age}}</div>
+         </form>
+       ```  
