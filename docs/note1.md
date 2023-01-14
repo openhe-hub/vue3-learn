@@ -141,4 +141,43 @@
     </ul>
     ``` 
     * key的作用：跟踪每个节点的唯一标识；提升渲染性能 
-14. 
+    * vue3可以监听数组的以下变化，进行响应式处理
+      * 下标修改
+      * push
+      * pop
+      * shift
+      * unshift
+      * slice
+      * sort
+      * reverse
+14. 事件处理
+    * 接收event对象: 传入特殊对象`$event`
+      ```html
+      <button @click="handle2(5,$event)">handle3</button>
+      ``` 
+      ```js
+      handle2(num, e) {
+         this.count++;
+         console.log(num);
+         console.log(e);
+      }
+      ```
+    * 多事件处理: 逗号分割处理函数即可
+      ```html
+      <button @click="listener1(),listener2()">{{ count }}</button>
+      ```     
+    * 事件修饰符
+      * .stop：阻止事件冒泡
+      ```html
+      <div @click="divClick">
+         <button @click.stop="btnClick">clicke me</button>
+      </div>
+      ``` 
+      * .prevent：阻止表单提交
+      * .once：只响应一次事件处理
+    * 按键修饰符 @keyup/keydown
+      * e.g. `@keyup.enter`：表单提交
+      ```html
+      <input type="text" @keyup.enter="onKeyEnter"/>
+      ``` 
+15. 
