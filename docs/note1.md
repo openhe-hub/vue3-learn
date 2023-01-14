@@ -109,4 +109,36 @@
                 fontSize: '20px'
             }`
     3. 注意仍为css的key-value，改为驼峰命名法        
-12. 
+12. `v-if`和`v-show`
+   * v-if：不符合条件不渲染dom结构(条件较少改变)
+      ```html
+        <p v-if="age>18">i am an adult</p>
+        <p v-else-if="age==18">i am exactly adult</p>
+        <p v-else>i am a child</p>
+        <hr>
+        <template v-if="age==18">
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+        </template>
+      ```    
+   * v-show：不符合条件渲染，但是通过css控制隐藏（条件改变频繁）
+      ```html
+      <p v-show="gender=='male'">male</p>
+      <p v-show="gender=='female'">female</p>
+      ```    
+13. `v-for`
+    * 遍历数组
+    ```html
+    <ul>
+      <li v-for="(user,idx) in users" :key="user">{{ idx }}=>{{ user }}</li>
+    </ul>
+    ``` 
+    * 遍历对象
+    ```html
+    <ul>
+      <li v-for="(item,key,idx) in personObj" :key="key">{{key}},{{idx}}=>{{item}}</li>
+    </ul>
+    ``` 
+    * key的作用：跟踪每个节点的唯一标识；提升渲染性能 
+14. 
