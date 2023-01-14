@@ -7,8 +7,7 @@
    1. 组合式api
    2. 多根节点组件
    3. TS支持
-   4. Vue3组件可以有多个根元素
-3. 使用Vite快速搭建Vue3
+3. 使用Vite快速搭建Vue3(或使用vue-cli)
    ```bash
    npm create vite@latest demo-startup -- --template vue
    cd demo-startup
@@ -239,7 +238,7 @@
          }
       }
     ``` 
-    4. 修饰符   
+    1. 修饰符   
        1. lazy：懒加载，减少频繁更新数据（失去焦点后再同步数据）
        2. number：输入框类型自动转为number类型
        3. trim：消除首尾空格（中间空格转为一格）
