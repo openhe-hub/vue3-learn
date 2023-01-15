@@ -201,6 +201,80 @@
        ``` 
     4. 子组件访问父组件：`$parent`
     5. 子组件访问根组件：`$root`
+    6. 组件跨级通信：`provide`&`inject`
+       * 注意1：如果需要传变量，provide应为函数，返回一个对象 
+       * 注意2：`provide`&`inject`不是响应式的
+       * demo code: 以第一级组件直接向第三级组件传数据为例
+          * 第一级组件
+          ```js
+          provide(){
+            return{
+            msg:this.msg
+            }
+          }
+          ``` 
+          * 第三级组件   
+          ```js
+          inject:['msg']
+          ``` 
+       * 如何解决响应式问题=>用对象包装后传入（应为传递的对象是浅拷贝的，所以可以实现数据响应式更改）
+          * 第一级组件
+          ```js
+            import Father from "./Father.vue";
+
+            export default {
+            name: "GrandParent",
+            data() {
+                return {
+                msg: "hello",
+                obj:{
+                    msg:"hello"
+                }
+                }
+            },
+            components: {
+                Father
+            },
+            provide(){
+                return{
+                msg:this.msg,
+                obj:this.obj
+                }
+            },
+            methods:{
+                change(){
+                this.obj.msg+='_suffix';
+                }
+            }
+            }
+          ``` 
+          * 第三级组件   
+          ```js
+          inject:['msg','obj']
+          ``` 
+        *  解决响应方法之二：provide传入匿名函数包装数据，inject接收后，再用计算属性更新数据（mustache插值不推荐写函数调用） 
+           *  第一级组件
+           ```js
+            provide(){
+                return{
+                msg:()=>this.msg,
+                obj:this.obj
+                }
+            },
+           ```  
+           *  第三级组件
+           ```js
+           export default {
+            name: "Son",
+            inject:['msg','obj'],
+            computed:{
+                newMsg(){
+                return this.msg();
+                }
+            }
+           }
+           ```  
+           
 3. 插槽
    1. 插槽:通过占位符实现父组件向子组件注入内容，提高子组件复用性
        * 子组件
@@ -264,7 +338,7 @@
        ```html
        <slot name="list" :list="list"></slot>
        ``` 
-       3. 父组件通过`slotProps.obj`接收
+       2. 父组件通过`slotProps.obj`接收
        ```html
        <template v-slot:list="slotProps">
         <div>{{slotProps}}</div>
