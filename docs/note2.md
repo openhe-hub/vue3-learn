@@ -202,7 +202,80 @@
     4. 子组件访问父组件：`$parent`
     5. 子组件访问根组件：`$root`
 3. 插槽
+   1. 插槽:通过占位符实现父组件向子组件注入内容，提高子组件复用性
+       * 子组件
+       ```html
+       <template>
+        <div id="container">
+            <slot></slot>
+        </div>
+       </template>
+       ``` 
+       * 父组件
+       ```html
+       <template>
+        <div id="container">
+            <Son>
+            <button>click me</button>
+            </Son>
+            <Son>
+            <p>click me</p>
+            </Son>
+        </div>
+       </template>
+       ``` 
+   2. 具名插槽（通过`name`属性匹配多个插槽）
+       * 子组件：指定slot标签的`name`
+       ```html
+       <template>
+        <div id="container">
+            <slot name="header"></slot>
+            <slot name="footer"></slot>
+        </div>
+       </template>
+       ``` 
+       * 父组件：使用template标签包裹插槽内容，指定`v-slot:name`
+       ```html
+       <template>
+        <div id="container">
+            <Son>
+            <template v-slot:header>
+                <button>click me</button>
+            </template>
+            <template v-slot:footer>
+                <p>click me</p>
+            </template>
+            </Son>
+        </div>
+       </template>
+       ```  
+    3. 插槽的数据作用域：父组件
+    4. 插槽备用内容：插槽的默认值
+       * 在slot标签内写默认内容即可
+       ```html
+       <button>
+        <slot name="btn">
+            default
+        </slot>
+       </button>
+       ```  
+    5. 作用域插槽：使用子组件的数据
+       1. 子组件定义`:slotProps=xxx`
+       ```html
+       <slot name="list" :list="list"></slot>
+       ``` 
+       3. 父组件通过`slotProps.obj`接收
+       ```html
+       <template v-slot:list="slotProps">
+        <div>{{slotProps}}</div>
+        <ul>
+          <li v-for="num in slotProps.list">{{num}}</li>
+        </ul>
+      </template>
+       ```
 4. 生命周期
+   1. vue的生命周期
+   2. 生命周期回调函数
 5. Vue3-组合式api
 
       

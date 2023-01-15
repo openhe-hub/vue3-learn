@@ -1,5 +1,6 @@
 <script>
 import Content from "./components/Content.vue";
+import Father from "./components/slot/Father.vue";
 
 export default {
   data(){
@@ -8,14 +9,15 @@ export default {
     }
   },
   components:{
-    Content
+    Content,
+    Father
   }
 }
 </script>
 
 <template>
   <div>
-    <Content></Content>
+    <Father></Father>
   </div>
 </template>
 
