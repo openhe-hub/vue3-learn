@@ -17,6 +17,8 @@
     *  vue-3组合式api 
 4. demo-vue-router
     * vue-router使用
+    * 路由规则
+    * 导航守卫
 5. demo-vue-axios
     * axios使用
 6. demo-vuex

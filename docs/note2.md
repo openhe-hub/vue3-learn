@@ -1,4 +1,4 @@
-# Vue note 2
+# Vue-3 note 2
 1. 组件基础与使用
    1. 定义一个组件三要素：`template`,`script`,`style`
    2. 使用
