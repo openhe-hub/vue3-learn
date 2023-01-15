@@ -350,6 +350,7 @@
 4. 生命周期
    1. vue的生命周期
    2. 生命周期回调函数
+   ![](asset/lifecycle.png) 
 5. Vue3-组合式api
 
       
