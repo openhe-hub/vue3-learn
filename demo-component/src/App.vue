@@ -1,7 +1,8 @@
 <script>
 import Content from "./components/Content.vue";
-import Father from "./components/slot/Father.vue";
 import GrandParent from "./components/communication/GrandParent.vue";
+import Demo from "./components/composition-api/Demo.vue";
+import Father from './components/composition-api/Father.vue'
 
 export default {
   data(){
@@ -12,14 +13,15 @@ export default {
   components:{
     Content,
     Father,
-    GrandParent
+    GrandParent,
+    Demo
   }
 }
 </script>
 
 <template>
   <div>
-    <GrandParent></GrandParent>
+    <Father></Father>
   </div>
 </template>
 
