@@ -1,4 +1,9 @@
 # Repo for Vue-3 study
+![](https://img.shields.io/badge/lang-Vue3-lightgreen.svg?style=flat)
+![](https://img.shields.io/badge/build-Vite-cyan.svg?style=flat)
+![](https://img.shields.io/badge/plugin-VueRouter-red.svg?style=flat)
+![](https://img.shields.io/badge/openhe-study-blue.svg?style=flat)
+
 ## Guide
 1. Note: under `/docs`
    * note 1: demo-startup
