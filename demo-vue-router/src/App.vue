@@ -9,11 +9,13 @@
       <br>
       <router-link to="/about">Go to About</router-link>
       <br>
+      <router-link to="/user">Go to User</router-link>
+      <br>
       <router-link to="/item/123">Go to Item 123</router-link>
       <br>
-      <router-link to="/item/124">Go to Item 124</router-link>
+      <router-link :to="{name:'item',params:{id:124}}">Go to Item 124</router-link>
     </p>
-<!--    component mapped by routes will be rendered here-->
+    <!--    component mapped by routes will be rendered here-->
     <router-view></router-view>
   </div>
 </template>

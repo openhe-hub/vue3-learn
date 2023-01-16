@@ -18,6 +18,7 @@
 4. demo-vue-router
     * vue-router使用
     * 路由规则
+    * 动态路由
     * 导航守卫
 5. demo-vue-axios
     * axios使用
