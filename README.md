@@ -15,10 +15,15 @@
     *  vue生命周期
     *  插槽
     *  vue-3组合式api 
+    *  setup语法糖
 4. demo-vue-router
     * vue-router使用
     * 路由规则
     * 动态路由
+    * 编程式导航
+    * 路由&视图命名
+    * URL重定向&命名
+    * 历史模式
     * 导航守卫
 5. demo-vue-axios
     * axios使用
