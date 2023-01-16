@@ -1,4 +1,4 @@
-# Vue-3 note 3(Vue Router)
+# Vue-3 Note 3 (Vue Router)
 1. 快速入门
    * npm安装：`npm install vue-router@4`
    * Vue Router路由概念：url路径与vue组件的映射

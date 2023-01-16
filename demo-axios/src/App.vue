@@ -1,29 +1,56 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import api from "./plugins/axios/axiosInstance.js";
+import {reactive, ref} from "vue";
+
+// ==== data ====
+const data = reactive([]);
+const getData = () => {
+  api({
+    url: '/data',
+    method: 'get'
+  }).then((resp) => {
+    console.log(resp);
+    const arr = resp.data.nums;
+    data.push(...arr);
+  }).catch((err) => {
+    console.log(err);
+  })
+}
+// ==== msg ====
+const msg = ref();
+const getMsg = () => {
+  api({
+    url: '/hello',
+    method: 'get'
+  }).then(resp => {
+    msg.value = resp.data.msg;
+  }).catch(err => {
+    console.log(err);
+  })
+}
+// ==== obj ====
+let user=reactive({name:""});
+const getObj=()=>{
+  api({
+    url:'/obj',
+    method:'get'
+  }).then(resp=>{
+    console.log(resp.data.user);
+    user.name=resp.data.user.name;
+  }).catch(err=>{
+    console.log(err);
+  })
+}
 </script>
 
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <button @click="getData">get data</button>
+    <div>{{ data }}</div>
+    <button @click="getMsg">get message</button>
+    <div>{{ msg }}</div>
+    <button @click="getObj">get object</button>
+    <div>{{ user.name }}</div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
