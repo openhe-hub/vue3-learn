@@ -25,7 +25,9 @@
     * URL重定向&命名
     * 历史模式
     * 导航守卫
-5. demo-vue-axios
+5. demo-axios
     * axios使用
-6. demo-vuex
+6. demo-deploy
+    * 打包部署至云服务器的nginx上 
+7. demo-vuex
     * vuex使用      
