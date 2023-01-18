@@ -8,6 +8,10 @@
 1. Note: under `/docs`
    * note 1: demo-startup
    * note 2: demo-component 
+   * note 3: demo-vue-router
+   * note 4: demo-axios
+   * note 5: demo-deploy
+   * note 6: demo-vuex
 2. demo-startup
     *  基础vue组件
     *  基础vue指令
@@ -35,4 +39,9 @@
 6. demo-deploy
     * 打包部署至云服务器的nginx上 
 7. demo-vuex
-    * vuex使用      
+    * vuex使用 
+
+## TODO
+1. vuex learn
+2. piana learn
+3. axios cross-origin problem
