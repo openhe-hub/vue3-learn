@@ -515,7 +515,8 @@
             });
             const {msg}=toRefs(props)
             </script>
-           ```     
+           ```
+           * 注意：数组或对象直接通过`props.arr/obj`获取     
    11. 组合式api-子传父
        * 改变
          1. 子组件使用`defineEmits`函数
