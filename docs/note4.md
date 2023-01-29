@@ -33,4 +33,28 @@
             })
         }
         ``` 
-
+3. 解决跨域问题
+   * 使用前端代理解决跨域：假设现在需要访问`http://localhost:8080/api/**`请求数据
+     * 在`vite.config.js`中加入
+      ```js
+      server: {
+          proxy: {
+              '/api': {
+                  target: 'http://localhost:8080/api',
+                  changeOrigin: true,
+                  rewrite: (path) => path.replace(/^\/api/, '')
+              }
+          }
+      }
+      ```
+     *  使用：`/api/your_api`=>`http://localhost:8080/api/your_api`
+      ```js
+        api({
+            url: '/api/your_api',
+            method: 'get',
+        }).then(resp => {
+            console.log(resp);
+        }).catch(err => {
+            console.log(err);
+        })
+      ```    
